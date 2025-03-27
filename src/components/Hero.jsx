@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import BG from "../../public/hero.png";
 import { Link as ScrollLink } from "react-scroll";
 import { gsap } from "gsap";
 
@@ -22,7 +21,7 @@ const Hero = () => {
         >
             <div className="w-full p-2 place-items-center">
                 <div className="w-[250px] md:w-[350px] xl:w-[450px]">
-                    <img src={BG} alt="hero-image" />
+                    <img src="../../hero.png" alt="hero-image" />
                 </div>
                 <div className="flex flex-col gap-5 relative items-center">
                     <h1 className="font-[Boldonse] text-6xl sm:text-7xl md:text-9xl absolute bottom-36 sm:bottom-42 md:bottom-46 lg:bottom-40 xl:bottom-32">
