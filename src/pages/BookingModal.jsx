@@ -37,7 +37,7 @@ const BookingModal = ({ isOpen, onClose, service, category }) => {
         const endTime = 17;
         return Array.from(
             { length: endTime - startTime },
-            (_, i) => `${startTime + i}:00`
+            (_, i) => `${startTime + i}:00`,
         );
     }, []);
 
@@ -45,11 +45,11 @@ const BookingModal = ({ isOpen, onClose, service, category }) => {
         (bookedSlots) => {
             setAvailableTimes(
                 generateTimeSlots().filter(
-                    (time) => !bookedSlots.includes(time)
-                )
+                    (time) => !bookedSlots.includes(time),
+                ),
             );
         },
-        [generateTimeSlots]
+        [generateTimeSlots],
     );
 
     const fetchBookedSlots = useCallback(async () => {
@@ -59,7 +59,7 @@ const BookingModal = ({ isOpen, onClose, service, category }) => {
             const formattedDate = selectedDate?.toLocaleDateString();
             const q = query(
                 collection(db, "bookings"),
-                where("date", "==", formattedDate)
+                where("date", "==", formattedDate),
             );
             const snapshot = await getDocs(q);
             const bookedSlots = snapshot.docs.map((doc) => doc.data().time);
@@ -136,7 +136,7 @@ const BookingModal = ({ isOpen, onClose, service, category }) => {
         try {
             await addDoc(collection(db, "bookings"), bookingData);
 
-            console.log("Booking Confirmed:", bookingData);
+            // console.log("Booking Confirmed:", bookingData);
             setIsBookingConfirmed(true);
 
             //reset fields
